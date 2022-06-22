@@ -30,7 +30,7 @@ app.use((req, res, next) => {
 app.use( (err, req, res, next) =>{
     let status = err.status ? err.status : 500
     let message = err.message ? err.message : "Something wen't wrong in the application"
-    res.status(status).send({"error" : {"status" : status, "message" : message}})
+    return res.status(status).json({"error" :{status,message}})
 })
 
 
